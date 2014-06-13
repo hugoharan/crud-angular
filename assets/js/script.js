@@ -1,10 +1,11 @@
+
 	var Cadastro = function ($scope){
 
-		$scope.selecao = {id : 0, nome: "", grupo: ""};
-		$scope.lista = [];
+
 
 		var init = function(){
-
+			$scope.selecao = {id : 0, nome: "", grupo: ""};
+			$scope.lista = [];
 			var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;
 		    var IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
 
@@ -50,5 +51,44 @@
 			};
         }
 
+	    $scope.editar = function (item){
+	    	debugger;
+	    	$scope.selecao = item;
+	    	debugger;
+	    }
 
-	}
+	    $scope.excluir = function(item){
+	    	var request = db.transaction(["selecoes"], "readwrite")
+                .objectStore("selecoes")
+                .delete(item.id);
+			request.onsuccess = function(event) {
+			  alert("sucesso!");
+			  var index = $scope.lista.indexOf(item);
+			  $scope.lista.splice(index,1)
+			  return(event);
+			};
+	    }
+
+	    $scope.listar = function(){
+			var transaction = db.transaction(["selecoes"]);
+	        var objectStore = transaction.objectStore("selecoes");
+			var selecoes = [];
+	        var request = objectStore.openCursor();
+	        request.onsuccess = function(e) {
+	            var cursor = e.target.result;
+	            if (cursor) {
+	               $scope.lista.unshift(cursor.value);
+	                cursor.continue();
+	            }
+	            else
+	            	return $scope.lista;
+	        };
+
+	        request.onerror = function(e) {
+				alert("Erro ao listar seleções");
+				console.log(e.target.errorCode);
+			};
+	    }
+
+	    //init();
+	}//);

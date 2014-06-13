@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app ng-controller="Cadastro">
+<html lang="en" ng-app>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,7 +41,7 @@
 						<h1>Seleções cadastradas</h1>
 					</div>
 					<div class="body-box">
-						<table class="table table-striped table-condensed table-selecoes">
+						<table class="table table-striped table-condensed table-selecoes" ng-controller="Cadastro">
 							<thead>
 								<tr>
 									<th>ID</th>
@@ -72,7 +72,7 @@
 						<h1>Cadastrar / Editar seleção</h1>
 					</div>
 					<div class="body-box">
-						<div class="formulario">
+						<div class="formulario" ng-controller="Cadastro">
 							<form>
 								<input type="hidden" value="0" id="id" name="id" ng-model="selecao.id"/>
 								<label style="display:block; font-weight:normal;"for="nome">Nome da seleção</label>
