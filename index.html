@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app ng-controller="Cadastro">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,9 +14,9 @@
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
+  	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  	<![endif]-->
   </head>
   <body>
 
@@ -51,33 +51,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Brasil</td>
-									<td>Grupo A</td>
-									<td>
-										<button class="btn-default btn"> <i class="fa fa-edit"></i> Editar</button>
-										<button class="btn-danger btn"> <i class="fa fa-trash-o"></i> Excluir</button>
+								<tr ng-repeat="item in lista">
+						          	<td>{{ item.id }}</td>
+						          	<td>{{ item.nome }}</td>
+						          	<td>{{ item.grupo }}</td>
+						          	<td>
+										<button class="btn-default btn" ng-click="editar(item)"> <i class="fa fa-edit"></i> Editar</button>
+										<button class="btn-danger btn" ng-click="excluir(item)"> <i class="fa fa-trash-o"></i> Excluir</button>
 									</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Brasil</td>
-									<td>Grupo A</td>
-									<td>
-										<button class="btn-default btn"> <i class="fa fa-edit"></i> Editar</button>
-										<button class="btn-danger btn"> <i class="fa fa-trash-o"></i> Excluir</button>
-									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Brasil</td>
-									<td>Grupo A</td>
-									<td>
-										<button class="btn-default btn"> <i class="fa fa-edit"></i> Editar</button>
-										<button class="btn-danger btn"> <i class="fa fa-trash-o"></i> Excluir</button>
-									</td>
-								</tr>
+						        </tr>
 							</tbody>
 						</table>
 					</div>
@@ -92,12 +74,12 @@
 					<div class="body-box">
 						<div class="formulario">
 							<form>
-								<input type="hidden" value="0" id="id" name="id"/>
+								<input type="hidden" value="0" id="id" name="id" ng-model="selecao.id"/>
 								<label style="display:block; font-weight:normal;"for="nome">Nome da seleção</label>
-								<input class="form-control" type="text" name="nome" id="nome"/>
+								<input class="form-control" type="text" name="nome" id="nome" ng-model="selecao.nome"/>
 
 								<label style="display:block; font-weight:normal;" for="grupo">Grupo</label>
-								<select  class="form-control" name="grupo" id="grupo">
+								<select  class="form-control" name="grupo" id="grupo" ng-model="selecao.grupo">
 									<option value="A">Grupo A</option>
 									<option value="B">Grupo B</option>
 									<option value="C">Grupo C</option>
@@ -108,7 +90,7 @@
 									<option value="H">Grupo H</option>
 								</select>
 								<br/>
-								<button class="btn btn-success button-save">
+								<button class="btn btn-success button-save" ng-click="salvar()">
 									<i class="fa fa-save"></i> Salvar
 								</button>
 							</form>
