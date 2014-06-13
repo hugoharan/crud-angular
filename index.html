@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Index - CRUD Angular JS</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="search box-grupo">
+					<div class="header-box">
+						<h1>Pesquisar seleção</h1>
+					</div>
+					<div class="body-box">
+
+						<label style="display:block; font-weight:normal;" for="search">Nome da seleção</label>
+						<input class="form-control"  type="text" name="search" id="search"/>
+
+						<button type="button" class="btn btn-warning btn-sm search"> <i class="fa fa-search"></i></button>
+					</div>
+				</div>
+
+				<div class="search box-grupo">
+					<div class="header-box">
+						<h1>Seleções cadastradas</h1>
+					</div>
+					<div class="body-box">
+						<table class="table table-striped table-condensed table-selecoes">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>País</th>
+									<th>Grupo</th>
+									<th class="acoes">Ações</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Brasil</td>
+									<td>Grupo A</td>
+									<td>
+										<button class="btn-default btn"> <i class="fa fa-edit"></i> Editar</button>
+										<button class="btn-danger btn"> <i class="fa fa-trash-o"></i> Excluir</button>
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Brasil</td>
+									<td>Grupo A</td>
+									<td>
+										<button class="btn-default btn"> <i class="fa fa-edit"></i> Editar</button>
+										<button class="btn-danger btn"> <i class="fa fa-trash-o"></i> Excluir</button>
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Brasil</td>
+									<td>Grupo A</td>
+									<td>
+										<button class="btn-default btn"> <i class="fa fa-edit"></i> Editar</button>
+										<button class="btn-danger btn"> <i class="fa fa-trash-o"></i> Excluir</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="search box-grupo">
+					<div class="header-box">
+						<h1>Cadastrar / Editar seleção</h1>
+					</div>
+					<div class="body-box">
+						<div class="formulario">
+							<form>
+								<input type="hidden" value="0" id="id" name="id"/>
+								<label style="display:block; font-weight:normal;"for="nome">Nome da seleção</label>
+								<input class="form-control" type="text" name="nome" id="nome"/>
+
+								<label style="display:block; font-weight:normal;" for="grupo">Grupo</label>
+								<select  class="form-control" name="grupo" id="grupo">
+									<option value="A">Grupo A</option>
+									<option value="B">Grupo B</option>
+									<option value="C">Grupo C</option>
+									<option value="D">Grupo D</option>
+									<option value="E">Grupo E</option>
+									<option value="F">Grupo F</option>
+									<option value="G">Grupo G</option>
+									<option value="H">Grupo H</option>
+								</select>
+								<br/>
+								<button class="btn btn-success button-save">
+									<i class="fa fa-save"></i> Salvar
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+	<script src="assets/js/index.js"></script>
+</body>
+</html>
