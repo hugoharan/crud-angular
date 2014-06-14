@@ -1,4 +1,6 @@
 crud-angular
 ============
 
-Simple CRUD using Angular Js and IndexedDB
+CRUD simples (Angular JS + IndexedDB)
+
+Para usar é necessário apenas executar.
