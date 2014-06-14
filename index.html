@@ -25,20 +25,20 @@
 			<div class="col-lg-6">
 				<div class="search box-grupo">
 					<div class="header-box">
-						<h1>Pesquisar seleção</h1>
+						<h1>PESQUISAR SELEÇÃO</h1>
 					</div>
 					<div class="body-box">
 
 						<label style="display:block; font-weight:normal;" for="search">Nome da seleção</label>
-						<input class="form-control"  type="text" name="search" id="search"/>
+						<input class="form-control"  type="text" name="search" id="search" ng-model="selecao.search"/>
 
-						<button type="button" class="btn btn-warning btn-sm search"> <i class="fa fa-search"></i></button>
+						<button type="button" class="btn btn-warning btn-sm search" ng-click="pesquisar()"> <i class="fa fa-search"></i></button>
 					</div>
 				</div>
 
 				<div class="search box-grupo">
 					<div class="header-box">
-						<h1>Seleções cadastradas</h1>
+						<h1>SELEÇÕES CADASTRADAS</h1>
 					</div>
 					<div class="body-box">
 						<table class="table table-striped table-condensed table-selecoes">
@@ -51,12 +51,12 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="item in selecoes">
+								<tr ng-repeat="item in lista">
 						          	<td>{{ item.id }}</td>
 						          	<td>{{ item.nome }}</td>
 						          	<td>{{ item.grupo }}</td>
 						          	<td>
-										<button class="btn-default btn" ng-click="editar(item)"> <i class="fa fa-edit"></i> Editar</button>
+										<button class="btn-default btn edit" ng-click="editar(item)"> <i class="fa fa-edit"></i> Editar</button>
 										<button class="btn-danger btn" ng-click="excluir(item)"> <i class="fa fa-trash-o"></i> Excluir</button>
 									</td>
 						        </tr>
@@ -67,9 +67,9 @@
 			</div>
 
 			<div class="col-lg-6">
-				<div class="search box-grupo">
+				<div class="search box-grupo box-form">
 					<div class="header-box">
-						<h1>Cadastrar / Editar seleção</h1>
+						<h1>CADASTRAR / EDITAR SELEÇÃO</h1>
 					</div>
 					<div class="body-box">
 						<div class="formulario">
