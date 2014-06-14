@@ -21,6 +21,9 @@
   <body ng-controller="Cadastro">
 
 	<div class="container">
+		<div class="row" style="text-align:center; margin: 20px 0;">
+			<img src="assets/img/logo.png">
+		</div>
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="search box-grupo">
@@ -76,10 +79,10 @@
 							<form>
 								<input type="hidden" value="0" id="id" name="id" ng-model="selecao.id"/>
 								<label style="display:block; font-weight:normal;"for="nome">Nome da seleção</label>
-								<input class="form-control" type="text" name="nome" id="nome" ng-model="selecao.nome"/>
+								<input class="form-control" type="text" name="nome" id="nome" ng-model="selecao.nome" required/>
 
 								<label style="display:block; font-weight:normal;" for="grupo">Grupo</label>
-								<select  class="form-control" name="grupo" id="grupo" ng-model="selecao.grupo">
+								<select  class="form-control" name="grupo" id="grupo" ng-model="selecao.grupo" required>
 									<option value="A">Grupo A</option>
 									<option value="B">Grupo B</option>
 									<option value="C">Grupo C</option>

@@ -1,9 +1,3 @@
-$(document).ready(function(){
-	$(".table-selecoes").on("click",".edit", function(){
-		$(".box-form").css("transform","rotateY(360deg)");
-	});
-
-});
 
 var Cadastro = function ($scope){
 
@@ -44,6 +38,12 @@ var Cadastro = function ($scope){
 
 
 	$scope.salvar = function () {
+		//validando campos
+		if($scope.selecao.nome == "" || $scope.selecao.grupo == ""){
+			alert("Por favor, preencha todos os campos!")
+			return;
+		}
+
 		var transaction = db.transaction(["selecoes"], "readwrite");
 		var objectStore = transaction.objectStore("selecoes");
 
@@ -97,7 +97,7 @@ var Cadastro = function ($scope){
 			};
 
 			request.onerror = function(e) {
-				alert("Erro ao salvar");
+				alert("Erro ao salvar, você pode estar tentando cadastrar um item já existente!");
 				console.log(e.target.errorCode);
 			};
 		}
@@ -105,6 +105,7 @@ var Cadastro = function ($scope){
 
 	$scope.editar = function (item){
 		//apenas preenche o model com o item desejado
+		animation();
 		$scope.selecao = item;
 	}
 
@@ -164,5 +165,10 @@ var Cadastro = function ($scope){
 		alert("Item não encontrado!");
 		$scope.lista = new Array();
 		$scope.listar();
+	}
+
+	var animation = function(){
+		$(".box-form").css("transform","rotateY(360deg)");
+		$(".box-form").css("transform","rotateY(-360deg)");
 	}
 }
